@@ -1,9 +1,9 @@
-Mon 2018-10-08 12:01:26 MDT
+#Mon 2018-10-08 12:01:26 MDT
+# Assumption: Raw 3c = 1lb, Cooked = 2lbs 8oz @ 6.5c
 
 import subprocess
 subprocess.run("clear")
 
-""" Assumption: Raw 3c = 1lb, Cooked = 2lbs 8oz @ 6.5c """
 Labels = ["Cal", "Fat", "Carbs", "Fiber", "Protein", "Cost", "Weight"]
 Black =   [170, .5, 31, 8, 11,     13.49, 10.0, 'Black'] #  10 lbs : 30c
 Quinoa =  [190, 3.5, 33, 2, 6,      9.99,  4.5, 'Quinoa'] # 4.5 lbs : 13.5c
@@ -14,9 +14,6 @@ Pea =     [175, .5, 31, 7, 12,    25.00, 21.0, 'Pea']
 IIFYM = [2274, 69, 243, 30, 171]
 Serv = [0, 0, 0, 0, 0]
 
-""". tServings = [2, 1, 2, 4, 1] ."""
-
-# Define Functions
 def recipe(x):
 	sum = (tBlack*Black[x]) + (tQuinoa*Quinoa[x]) + (tMasoori*Masoori[x]) + (tSoy*Soy[x]) + (tPinto*Pinto[x]) + (tPea*Pea[x])
 	return sum
