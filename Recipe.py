@@ -8,13 +8,14 @@ Quinoa =  [190, 3.5, 33, 2, 6,      9.99,  4.5, 'Quinoa'] # 4.5 lbs : 13.5c
 Masoori = [150, 0, 35, 0, 3,       14.99, 20.0, 'Masoori'] #  20 lbs : 60c
 Soy =     [415, 18.5, 28, 8.5, 34, 22.00, 20.0, 'Soy'] #  20 lbs : 60c
 Pinto =   [80, 1, 21, 12, 7,       23.00, 50.0, 'Pinto'] #  50 lbs : 150c
-Pea =     [175, .5, 31, 7, 12,    25.00, 21.0, 'Pea'] # Test
+#Pea =     [175, .5, 31, 7, 12,    25.00, 21.0, 'Pea'] # Test
 IIFYM = [2274, 69, 243, 30, 171] #Alter these numbers based on person macro count
-Serv = [2, 1, 2, 4, 1, 0]
+#Serv = [2, 1, 2, 4, 1, 0]
+Serv = [2, 1, 0, 4, 1]
 MaxDeviation = 0.20
 
 def recipe(x): # Multiply servings variable by ingredient macro values | Return total
-	sum = (Serv[0]*Black[x]) + (Serv[1]*Quinoa[x]) + (Serv[2]*Masoori[x]) + (Serv[3]*Soy[x]) + (Serv[3]*Pinto[x]) + (Serv[4]*Pea[x])
+	sum = (Serv[0]*Black[x]) + (Serv[1]*Quinoa[x]) + (Serv[2]*Masoori[x]) + (Serv[3]*Soy[x]) # + (Serv[4]*Pinto[x])
 	return sum
 
 def distance(x): # Distance of IIFYM value from Recipe value
@@ -64,16 +65,16 @@ print("Quinoa (.25 cup): ", const(Quinoa,0,0,0), const(Quinoa,1,0,0), const(Quin
 print("Sona Masoori (.25 cup): ", const(Masoori,0,0,0), const(Masoori,1,0,0), const(Masoori,2,1,1), const(Masoori,3,0,0), const(Masoori,4,2,1) )
 print("Soy (.25 cup): ", const(Soy,0,0,0), const(Soy,1,0,0), const(Soy,2,1,1), const(Soy,3,0,0), const(Soy,4,2,1) )
 print("Pinto (.25 cup): ", const(Pinto,0,0,0), const(Pinto,1,0,0), const(Pinto,2,1,1), const(Pinto,3,0,0), const(Pinto,4,2,1) )
-print("Pea (.25 cup): ", const(Pea,0,0,0), const(Pea,1,0,0), const(Pea,2,1,1), const(Pea,3,0,0), const(Pea,4,2,1) )
+#("Pea (.25 cup): ", const(Pea,0,0,0), const(Pea,1,0,0), const(Pea,2,1,1), const(Pea,3,0,0), const(Pea,4,2,1) )
 print("." * 45)
 
 # Input Recipe Servings
-Serv[0] = int(input("\nServings of Black Beans: "))
+"""Serv[0] = int(input("\nServings of Black Beans: "))
 Serv[1] = int(input("Servings of Quinoa: "))
 Serv[2] = int(input("Servings of Sona Masoori: "))
 Serv[3] = int(input("Servings of Soybeans: "))
-Serv[3] = int(input("Servings of Pinto Beans: "))
-Serv[4] = int(input("Servings of Peas: "))
+Serv[4] = int(input("Servings of Pinto Beans: "))
+#Serv[5] = int(input("Servings of Peas: ")) """
 print("\n", "." * 45, "\n")
 
 # Print Net Carbohydrates
@@ -89,11 +90,11 @@ print("Protein (" + str(IIFYM[4]) + "): ", recipe(4), sus(4, IIFYM[4],recipe(4))
 print("\n", "." * 45, "\n")
 
 # Print Recipe Cost
-print("Price: ($" + str(round(price(Black,Serv[0]) + price(Quinoa,Serv[1]) + price(Masoori,Serv[2]) + price(Soy,Serv[3]) + price(Pinto,Serv[3]), 2)) + ")" )
+print("Price: ($" + str(round(price(Black,Serv[0]) + price(Quinoa,Serv[1]) + price(Masoori,Serv[2]) + price(Soy,Serv[3]) + price(Pinto,Serv[4]), 2)) + ")" )
 print("Black Beans: ($" + str(price(Black, Serv[0])) + ")" )
 print("Quinoa: ($" + str(price(Quinoa, Serv[1])) + ")" )
 print("Masoori: ($" + str(price(Masoori, Serv[2])) + ")" )
 print("Soybeans: ($" + str(price(Soy, Serv[3])) + ")" )
-print("Pinto: ($" + str(price(Pinto, Serv[3])) + ")" )
-print("Pea: ($" + str(price(Pea, Serv[4])) + ")" )
+print("Pinto: ($" + str(price(Pinto, Serv[4])) + ")" )
+#print("Pea: ($" + str(price(Pea, Serv[5])) + ")" )
 print("\n", "." * 45, "\n\n")
